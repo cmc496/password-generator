@@ -41,10 +41,10 @@ function passwordLength() {
     console.log(promptLength);
     localStorage.setItem("length", promptLength);
 };
-
-  passwordLowercase();
-
   // set parameters for character types //
+
+  // lowercase option //
+  passwordLowercase();
 
   function passwordLowercase() {
     var optionLowercase = window.prompt("Would you like to use lowercase letters in your password? Please respond with 'Yes' or No.'");
@@ -65,7 +65,74 @@ function passwordLength() {
       console.log(optionLowercase);
   };
 
-  // 
+  // uppercase option //
+
+  passwordUppercase();
+
+  function passwordUppercase() {
+    var optionUppercase = window.prompt("Would you like to use uppercase letters in your password? Please respond with 'Yes' or No.'");
+    optionUppercase = optionUppercase.toLowerCase();
+
+    if (optionUppercase === "" || optionUppercase === null) {
+      window.alert("You need to provide a valid ansewr. Please try again.")
+      return passwordUppercase();
+    }
+
+    if (optionUppercase == "yes") {
+      var optionUppercase = true;
+    }
+    if (optionUppercase == "no") {
+      var optionUppercase = false;
+    }
+    console.log(optionUppercase);
+  };
+
+  // numbers option //
+
+  passwordNumbers();
+
+  function passwordNumbers() {
+    var optionNumbers = window.prompt("Would you like to use numbers in your password? Please respond with 'Yes' or No.'");
+    optionNumbers = optionNumbers.toLowerCase();
+    
+    if (optionNumbers === "" || optionNumbers === null) {
+      window.alert("You need to provide a valid answer. Please try again.");
+      return passwordNumbers();
+    }
+
+    if (optionNumbers == "yes") {
+      var optionNumbers = true;
+    }
+
+    if (optionNumbers == "no") {
+      var optionNumbers = false;
+    }
+    console.log(optionNumbers);
+
+  }
+
+  // special characters option //
+
+  passwordSpecial();
+
+  function passwordSpecial() {
+    var optionSpecial = window.prompt("Would you like to use special characters in your password? Please respond with 'Yes' or No.'");
+    optionSpecial = optionSpecial.toLowerCase();
+
+    if (optionSpecial === "" || optionSpecial === null) {
+      window.alert("You need to provide a valid answer. Please try again.");
+      return passwordSpecial();
+    }
+
+    if (optionSpecial == "yes") {
+      var optionSpecial = true;
+    }
+
+    if (optionSpecial == "no") {
+      var optionSpecial = false;
+    }
+    console.log(optionSpecial);
+  }
 
 
 
