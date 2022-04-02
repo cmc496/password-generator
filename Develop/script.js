@@ -39,20 +39,35 @@ function passwordLength() {
       window.alert("You have chosen a length of " + promptLength + " .");
     }
     console.log(promptLength);
-  
-  
+    localStorage.setItem("length", promptLength);
+};
+
+  passwordLowercase();
 
   // set parameters for character types //
-  var optionLowercase = function() { 
-    window.prompt("Would you like to use lowercase letters in your password?");
-  
-    if (optionLowercase === "" || optionLowercase === null) {
-      window.alert("You must choose a valid answer. Please try again.");
-      return optionLowercase()
-    }
-  }
 
-};
+  function passwordLowercase() {
+    var optionLowercase = window.prompt("Would you like to use lowercase letters in your password? Please respond with 'Yes' or No.'");
+    optionLowercase = optionLowercase.toLowerCase();
+
+    if (optionLowercase === "" || optionLowercase === null) {
+      window.alert("You need to provide a valid answer. Please try again.");
+      return passwordLowercase();
+    }
+    
+      if (optionLowercase == "yes") {
+        var optionLowercase = true;
+      }
+      if (optionLowercase == "no") {
+        var optionLowercase = false;
+      } 
+
+      console.log(optionLowercase);
+  };
+
+  // 
+
+
 
 // Write password to the #password input
 function writePassword() {
