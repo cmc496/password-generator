@@ -180,24 +180,29 @@ function passwordSpecial() {
       return passwordLowercase();
     }
 
+    // generate password //
+
     passwordGenerated();
 
     function passwordGenerated() {
-      //var generatedPassword = (optionLength) => []
+      
       var length = optionLength;
       const charset = lowercase[optionLowercase] + uppercase[optionUppercase] + numbers[optionNumbers] + special[optionSpecial];
       var generatedPassword = "";
       const charsetLength = charset.length;
       console.log("charset.length is " + charset.length);
-      //console.log("length is " + optionLength);
       console.log("character choices: " + charset);
-    debugger;
+  
       for ( var i = 0; i < length; i++ ) {
         generatedPassword += charset.charAt(Math.floor(Math.random() * charsetLength));
-      //console.log(generatedPassword);
       }
-      //return generatedPassword;
       console.log("generated password is " + generatedPassword);
+
+      // Write password to the #password input
+
+      var passwordText = document.querySelector("#password");
+
+      passwordText.value = generatedPassword;
     }
     
   };
@@ -206,15 +211,6 @@ function passwordSpecial() {
 };
 };
 };
-
-  // Write password to the #password input
-
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
