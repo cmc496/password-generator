@@ -55,10 +55,10 @@ function passwordLength() {
       return passwordLowercase();
     }
     
-      if (optionLowercase == "yes") {
+      if (optionLowercase === "yes") {
         var optionLowercase = true;
       }
-      if (optionLowercase == "no") {
+      if (optionLowercase === "no") {
         var optionLowercase = false;
       } 
 
@@ -80,6 +80,7 @@ function passwordLength() {
 
     if (optionUppercase == "yes") {
       var optionUppercase = true;
+      localStorage.setItem(uppercase, optionUppercase);
     }
     if (optionUppercase == "no") {
       var optionUppercase = false;
@@ -134,6 +135,27 @@ function passwordLength() {
     console.log(optionSpecial);
   }
 
+  // Make sure the user cannot continue without picking a minimum of one character type //
+debugger;
+  passwordParameters();
+
+  function passwordParameters() {
+    var parameters = [passwordLowercase, passwordUppercase, passwordNumbers, passwordSpecial]; 
+    var parameters = {
+      reset: function() {
+        this.optionLowercase = null;
+        this.optionUppercase = null;
+        this.optionNumbers = null;
+        this.optionSpecial = null;
+      }
+    };
+
+    if (parameters === [false, false, false, false]) {
+      window.alert("You must choose at least one character type. Go back and choose at least ONE.");
+      return passwordLowercase();
+    }
+  
+  }
 
 
 // Write password to the #password input
